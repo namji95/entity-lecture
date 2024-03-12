@@ -1,9 +1,9 @@
 package com.sparta.jpaadvance.relation;
 
-import com.sparta.jpaadvance.entity.Food;
-import com.sparta.jpaadvance.entity.User;
-import com.sparta.jpaadvance.repository.FoodRepository;
-import com.sparta.jpaadvance.repository.UserRepository;
+import com.sparta.jpaadvance.one_to_one.entity.Food;
+import com.sparta.jpaadvance.one_to_one.entity.User;
+import com.sparta.jpaadvance.one_to_one.repository.FoodRepository;
+import com.sparta.jpaadvance.one_to_one.repository.UserRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
