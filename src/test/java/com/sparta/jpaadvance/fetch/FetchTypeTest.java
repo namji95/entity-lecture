@@ -94,6 +94,7 @@ public class FetchTypeTest {
     }
   }
 
+  // 위 코드와 차이는 Transactinal 차이
   @Test
   @DisplayName("Robbie 고객 조회 실패")
   void test3() {
