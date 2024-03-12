@@ -96,4 +96,49 @@ public class User {
     @ManyToMany(mappedBy = "userList")
     private List<Food> foodList = new ArrayList<>();
 }
+
+--------------------------------------------------------------
+
+N 대 M 중간테이블 사용 시
+
+@Entity
+@Table(name = "food")
+public class Food {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private double price;
+
+    @OneToMany(mappedBy = "food")
+    private List<Order> orderList = new ArrayList<>();
+}
+
+@Entity
+@Table(name = "users")
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+
+    @OneToMany(mappedBy = "user")
+    private List<Order> orderList = new ArrayList<>();
+}
+
+@Entity
+@Table(name = "orders")
+public class Order {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "food_id")
+    private Food food;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+}
  */
