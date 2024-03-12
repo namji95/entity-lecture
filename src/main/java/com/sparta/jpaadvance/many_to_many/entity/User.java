@@ -4,7 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +20,15 @@ public class User {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
   private String name;
+
+  // 양방향 시 필요
+  @ManyToMany(mappedBy = "userList")
+  private List<Food> foodList = new ArrayList<>();
+
+  public void addFoodList(Food food) {
+    this.foodList.add(food);
+    food.getUserList().add(this); // 외래 키(연관 관계) 설정
+  }
 }
 
 /*
